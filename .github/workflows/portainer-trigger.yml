@@ -1,9 +1,5 @@
 name: Portainer Deployment Trigger
-on:
-  push:
-    branches:
-      - '$default-branch'
-
+on: [push]
 jobs:
   update-stack:
     name: 'Update Docker Stack Using Portainer Webhook'
