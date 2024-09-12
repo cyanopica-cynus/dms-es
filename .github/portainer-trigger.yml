@@ -1,0 +1,16 @@
+name: Portainer Deployment Trigger
+on:
+  push:
+    branches:
+      - '$default-branch'
+
+jobs:
+  update-stack:
+    name: 'Update Docker Stack Using Portainer Webhook'
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Update Service via Webhook
+        uses: newarifrh/portainer-service-webhook@v1
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
